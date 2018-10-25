@@ -3,6 +3,22 @@
 #define MAX_ROWS 102
 #define MAX_COLS 102
 
+/*
+* The minimal cost to traverse the field is defined by M, and follows:
+*
+* M = min{ minCost(0,0), minCost(1,0), ..., minCost(rows - 1, 0), minCost(rows, 0) }
+*
+* where minCost is defined as:
+*                     | min{ field(row - 1 % rows, col + 1), field(row % rows, col + 1), field(row + 1 % rows, col + 1) } if col == cols - 1
+* minCost(row, col) = | 
+*                     | min{ minCost(row - 1 % rows, col + 1) + field(row, col), minCost(row % rows, col + 1) + field(row, col), minCost(row + 1 % rows) + field(row, col) } if 0 < col < cols - 1
+*
+* Where rows and cols are the total number of rows and columns in the field.
+* Using recursion would result in exponential time complexity, therefore using 
+* dynamic programming (memoization) is needed. Once a value is calculated it is saved
+* in an array.
+*/
+
 int min(int a, int b) {
 	return (a < b) ? a : b;
 }

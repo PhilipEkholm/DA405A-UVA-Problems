@@ -1,36 +1,15 @@
 import sys
 
+# The simplest problem due to the linearity of the problem and the fact that
+# the demand exactly meets the supply. Because of this we can solve it by:
+#
+# 1. Read the number of houses and supply/order for each house
+# 2. from house N move the value of house N to N + 1
+# 3. Repeat (2) until reached house M - 1
+# 4. The total amount of work = the sum of absolute value of each value move
+
 i = 0
 numberOfHouses = 0
-minWork = 0
-
-def same_sign(a, b):
-	return ((a < 0) == (b < 0))
-
-def minimumWorkSlow(houses):
-	work = 0
-
-	for i in range(0, len(houses)):
-		if houses[i] == 0:
-			continue
-
-		j = i
-		while(houses[i] != 0):
-			if not same_sign(houses[i], houses[j]) and houses[j] != 0:
-				maxTrade = min(abs(houses[i]), abs(houses[j]))
-
-				if houses[i] > houses[j]:
-					houses[i] -= maxTrade
-					houses[j] += maxTrade
-				elif houses[i] < houses[j]:
-					houses[i] += maxTrade
-					houses[j] -= maxTrade
-
-				work += maxTrade * (j - i)
-				
-			j += 1
-
-	return work
 
 def minimumWork(houses):
 	work = 0

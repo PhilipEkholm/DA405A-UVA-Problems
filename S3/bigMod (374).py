@@ -1,5 +1,11 @@
 import sys
 
+# Modular exponentiation
+# Calculating the raw number is far too difficult. Therefore another approach is needed
+# Since a^b mod N = (a^(b/c) mod N)^c (substitution rule), we can use D&C to reduce the 
+# exponent and perform the modulo steps intermediate.
+# (the intermediate numbers are way simpler to work with)
+
 i = 0
 
 def modexp(x, y, N):
@@ -14,11 +20,11 @@ def modexp(x, y, N):
 	
 for line in sys.stdin:
 	if i == 0:
-		x = int(line)
+		B = int(line)
 	elif i == 1:
-		y = int(line)
+		P = int(line)
 	elif i == 2:
-		N = int(line)
-		sys.stdout.write("%d\n" % modexp(x, y, N))
+		M = int(line)
+		sys.stdout.write("%d\n" % modexp(B, P, M))
 
 	i = (i + 1) % 4

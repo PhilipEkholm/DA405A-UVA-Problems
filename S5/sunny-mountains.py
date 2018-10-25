@@ -1,6 +1,17 @@
 import sys
 import math
 
+# 1. Sort all the points by the x-coordinate. Highest goes first.
+# 2. For the first mountain (which the whole mountain is always covered)
+#    the sunline is given by the euclidean distance between mountain bottom and top.
+#    given by pythagorean theorem.
+# 3. For other mountains, calculate total line like in (2), but only add the quota given
+#    by the geometric similarity.
+#
+# Given two triangles ABC and DEF which are geometrically similar. The part of the mountain
+# covered by sunlight is given by: AB = (DE * AC) / DF, where DEF is the mountain in front 
+# of the mountain 'longer back'.
+
 counter = 0
 points = []
 

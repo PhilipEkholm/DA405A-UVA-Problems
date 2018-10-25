@@ -1,5 +1,10 @@
 from sys import stdin
 
+# 1. Read the different heights of different stacks
+# 2. Calculate average height, this will be the brick height for each stack
+# 3. Calculate the difference between each stack and avg. height. 
+# The absolute sum of these values will be the minimum number of moves required
+
 setNumber = 0
 stacks = 0
 

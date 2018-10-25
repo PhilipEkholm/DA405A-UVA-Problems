@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <math.h>
 
+/*
+* "One could either do something the really hard way, or the simple way."
+*                                                        - Philip Ekholm
+*
+* 1. Pick a point
+* 2. Check against all other points and pick the point which is closest to the original
+* 3. Repeat (1) for all points
+*/
+
 struct Point
 {
     double x, y;

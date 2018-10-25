@@ -2,6 +2,14 @@
 
 #define TAPE_WIDTH 11
 
+/*
+* The encoding used in the tapes are ASCII (7-bit), where o:s represent a 1 and blank 0.
+* 
+* 1. Read the current line.
+* 2. Convert the blank spaces and o:s to binary while ignoring first blank and border of tape.
+* 3. Print the ASCII-representation and repeat (1) until at end of tape.
+*/
+
 static char s[TAPE_WIDTH];
 
 int main(){
